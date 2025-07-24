@@ -1,2 +1,2 @@
-# iskcon_virar_landing
+# ISKCON_VIRAR
 developing a dashboard to facilitate preaching in virar congregation
