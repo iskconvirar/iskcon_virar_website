@@ -1,0 +1,381 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISKCON Virar - International Society for Krishna Consciousness</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/landing.css' %}">
+</head>
+<body>
+    <!-- Top Announcement Bar -->
+    <div class="announcement-bar">
+        <marquee behavior="scroll" direction="left">
+            � Join us for daily Aarti at 7:00 AM and 7:00 PM | Sunday Feast every week at 12:00 PM | Upcoming Janmashtami Festival on August 16th
+        </marquee>
+    </div>
+
+    <!-- Header with Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="{% static 'images/logo2.png' %}" alt="ISKCON Logo">
+                <div class="logo-text">
+                    <h1>ISKCON Virar</h1>
+                    <p>International Society for Krishna Consciousness</p>
+                </div>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#donate" class="donate-btn">Donate</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h2>Welcome to ISKCON Virar</h2>
+                <p>Experience the divine love of Lord Krishna through devotional services, kirtans, and spiritual wisdom</p>
+                <div class="hero-buttons">
+                    <a href="#events" class="btn-primary">Upcoming Events</a>
+                    <a href="#donate" class="btn-secondary">Support Temple</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="quick-links">
+        <div class="container">
+            <div class="quick-link-item">
+                <i class="fas fa-calendar-alt"></i>
+                <h3>Daily Schedule</h3>
+                <a href="#schedule">View Timings</a>
+            </div>
+            <div class="quick-link-item">
+                <i class="fas fa-donate"></i>
+                <h3>Donate Online</h3>
+                <a href="#donate">Support ISKCON</a>
+            </div>
+            <div class="quick-link-item">
+                <i class="fas fa-book"></i>
+                <h3>Scriptures</h3>
+                <a href="#books">Read Bhagavad Gita</a>
+            </div>
+            <div class="quick-link-item">
+                <i class="fas fa-video"></i>
+                <h3>Live Darshan</h3>
+                <a href="#darshan">Watch Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>About ISKCON Virar</h2>
+                <p>Spreading Lord Krishna's message since 2010</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>ISKCON Virar is a branch of the International Society for Krishna Consciousness (ISKCON) founded by His Divine Grace A.C. Bhaktivedanta Swami Prabhupada in 1966. Our temple in Virar serves as a spiritual oasis for devotees and visitors seeking peace, wisdom, and divine connection.</p>
+                    <p>We conduct regular devotional programs, distribute spiritual literature, and provide vegetarian prasadam to all visitors. Our mission is to propagate Krishna consciousness as explained in the Bhagavad-gita and Srimad Bhagavatam.</p>
+                    <a href="#about-more" class="btn-primary">Learn More</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://iskconthane.com/wp-content/uploads/2020/06/temple.jpg" alt="ISKCON Temple">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Daily Schedule -->
+    <section id="schedule" class="schedule-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Daily Temple Schedule</h2>
+                <p>Join us for devotional services</p>
+            </div>
+            <div class="schedule-table">
+                <div class="schedule-row">
+                    <div class="schedule-time">4:30 AM</div>
+                    <div class="schedule-event">Mangala Arati</div>
+                </div>
+                <div class="schedule-row">
+                    <div class="schedule-time">7:00 AM</div>
+                    <div class="schedule-event">Darshan Arati</div>
+                </div>
+                <div class="schedule-row">
+                    <div class="schedule-time">12:00 PM</div>
+                    <div class="schedule-event">Raj Bhog Arati</div>
+                </div>
+                <div class="schedule-row">
+                    <div class="schedule-time">7:00 PM</div>
+                    <div class="schedule-event">Sandhya Arati</div>
+                </div>
+                <div class="schedule-row">
+                    <div class="schedule-time">8:30 PM</div>
+                    <div class="schedule-event">Shayan Arati</div>
+                </div>
+            </div>
+            <div class="special-note">
+                <p><strong>Sunday Feast:</strong> Every Sunday at 12:00 PM with special kirtan, lecture, and prasadam distribution</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="events-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Upcoming Events</h2>
+                <p>Join our spiritual gatherings</p>
+            </div>
+            <div class="events-grid">
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="date-day">30</span>
+                        <span class="date-month">Aug</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>Janmashtami Celebration</h3>
+                        <p>Join us for the grand celebration of Lord Krishna's appearance day with special abhishek, kirtan, and feast.</p>
+                        <a href="#event1" class="btn-secondary">Details</a>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="date-day">12</span>
+                        <span class="date-month">Sep</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>Gaura Purnima</h3>
+                        <p>Celebration of Lord Chaitanya Mahaprabhu's appearance day with special kirtan and procession.</p>
+                        <a href="#event2" class="btn-secondary">Details</a>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="date-day">Every Sun</span>
+                        <span class="date-month"></span>
+                    </div>
+                    <div class="event-details">
+                        <h3>Sunday Love Feast</h3>
+                        <p>Weekly spiritual gathering with kirtan, lecture on Bhagavad-gita, and delicious prasadam.</p>
+                        <a href="#event3" class="btn-secondary">Details</a>
+                    </div>
+                </div>
+            </div>
+            <div class="view-all-events">
+                <a href="#all-events" class="btn-primary">View All Events</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Temple Gallery</h2>
+                <p>Moments of devotion</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://iskconthane.com/wp-content/uploads/2020/06/temple-view.jpg" alt="Temple View">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://iskconthane.com/wp-content/uploads/2020/06/kirtan.jpg" alt="Kirtan">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://iskconthane.com/wp-content/uploads/2020/06/prasadam.jpg" alt="Prasadam">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://iskconthane.com/wp-content/uploads/2020/06/festival.jpg" alt="Festival">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="view-all-gallery">
+                <a href="#full-gallery" class="btn-primary">View Full Gallery</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Section -->
+    <section id="donate" class="donation-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Support ISKCON Virar</h2>
+                <p>Your donations help maintain the temple and spread Krishna consciousness</p>
+            </div>
+            <div class="donation-options">
+                <div class="donation-card">
+                    <i class="fas fa-rupee-sign"></i>
+                    <h3>One-Time Donation</h3>
+                    <p>Support specific temple projects or general maintenance</p>
+                    <a href="#donate-once" class="btn-primary">Donate Now</a>
+                </div>
+                <div class="donation-card">
+                    <i class="fas fa-calendar-check"></i>
+                    <h3>Monthly Contribution</h3>
+                    <p>Become a regular supporter with automated monthly donations</p>
+                    <a href="#donate-monthly" class="btn-primary">Subscribe</a>
+                </div>
+                <div class="donation-card">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>Volunteer</h3>
+                    <p>Offer your time and skills in service to Lord Krishna</p>
+                    <a href="#volunteer" class="btn-primary">Join Service</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contact Us</h2>
+                <p>Visit us or get in touch</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Address</h3>
+                        <p>ISKCON Virar Temple<br>Near Virar Station (East)<br>Virar (West), Maharashtra 401303</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <h3>Phone</h3>
+                        <p>+91 98765 43210<br>+91 98765 43211</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p>contact@iskconvirar.org<br>info@iskconvirar.org</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <h3>Temple Hours</h3>
+                        <p>4:30 AM - 1:00 PM<br>4:00 PM - 9:00 PM</p>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send us a message</h3>
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Your Phone">
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3766.981047239018!2d72.81421431538482!3d19.21498818701896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b13affffffff%3A0xfffffffffffffff!2sVirar%20Station!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="{% static 'images/logo2.png' %}" alt="ISKCON Logo">
+                        <h3>ISKCON Virar</h3>
+                    </div>
+                    <p>International Society for Krishna Consciousness<br>Founder-Acharya: His Divine Grace A.C. Bhaktivedanta Swami Prabhupada</p>
+                    <div class="social-links">
+                        <a href="#facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#youtube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About ISKCON</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#donate">Donate</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#gita">Bhagavad Gita</a></li>
+                        <li><a href="#books">Books</a></li>
+                        <li><a href="#lectures">Lectures</a></li>
+                        <li><a href="#kirtan">Kirtan</a></li>
+                        <li><a href="#recipes">Prasadam Recipes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for updates on events and activities</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your Email" required>
+                        <button type="submit" class="btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 ISKCON Virar. All Rights Reserved.</p>
+                <div class="footer-links">
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#terms">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
