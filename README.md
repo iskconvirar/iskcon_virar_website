@@ -1,2 +1,2 @@
-# ISKCON VIRAR EAST
-Developing a dashboard to facilitate preaching in virar east congregation
+# ISKCON_VIRAR
+developing a dashboard to facilitate preaching in virar congregation
