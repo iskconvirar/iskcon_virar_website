@@ -35,6 +35,7 @@
                     <li><a href="#events">Events</a></li>
                     <li><a href="#gallery">Gallery</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li><a href="{% url 'login' %}" class="login-btn">Login</a></li>
                     <li><a href="#donate" class="donate-btn">Donate</a></li>
                 </ul>
             </nav>
@@ -141,91 +142,63 @@
     </section>
 
     <!-- Events Section -->
-    <section id="events" class="events-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Upcoming Events</h2>
-                <p>Join our spiritual gatherings</p>
-            </div>
-            <div class="events-grid">
-                <div class="event-card">
-                    <div class="event-date">
-                        <span class="date-day">30</span>
-                        <span class="date-month">Aug</span>
-                    </div>
-                    <div class="event-details">
-                        <h3>Janmashtami Celebration</h3>
-                        <p>Join us for the grand celebration of Lord Krishna's appearance day with special abhishek, kirtan, and feast.</p>
-                        <a href="#event1" class="btn-secondary">Details</a>
-                    </div>
-                </div>
-                <div class="event-card">
-                    <div class="event-date">
-                        <span class="date-day">12</span>
-                        <span class="date-month">Sep</span>
-                    </div>
-                    <div class="event-details">
-                        <h3>Gaura Purnima</h3>
-                        <p>Celebration of Lord Chaitanya Mahaprabhu's appearance day with special kirtan and procession.</p>
-                        <a href="#event2" class="btn-secondary">Details</a>
-                    </div>
-                </div>
-                <div class="event-card">
-                    <div class="event-date">
-                        <span class="date-day">Every Sun</span>
-                        <span class="date-month"></span>
-                    </div>
-                    <div class="event-details">
-                        <h3>Sunday Love Feast</h3>
-                        <p>Weekly spiritual gathering with kirtan, lecture on Bhagavad-gita, and delicious prasadam.</p>
-                        <a href="#event3" class="btn-secondary">Details</a>
-                    </div>
-                </div>
-            </div>
-            <div class="view-all-events">
-                <a href="#all-events" class="btn-primary">View All Events</a>
-            </div>
+<section id="events" class="events-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Upcoming Events</h2>
+            <p>Join our spiritual gatherings</p>
         </div>
-    </section>
+        <div class="events-grid">
+            {% for event in events %}
+            <div class="event-card">
+                <div class="event-date">
+                    <span class="date-day">{{ event.date }}</span>
+                    <span class="date-month">{{ event.month }}</span>
+                </div>
+                <div class="event-details">
+                    <h3>{{ event.title }}</h3>
+                    <p>{{ event.description }}</p>
+                    {% if event.link %}
+                        <a href="{{ event.link }}" class="btn-secondary">Details</a>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="view-all-events">
+            <a href="#all-events" class="btn-primary">View All Events</a>
+        </div>
+    </div>
+</section>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="gallery-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Temple Gallery</h2>
-                <p>Moments of devotion</p>
-            </div>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="https://iskconthane.com/wp-content/uploads/2020/06/temple-view.jpg" alt="Temple View">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://iskconthane.com/wp-content/uploads/2020/06/kirtan.jpg" alt="Kirtan">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://iskconthane.com/wp-content/uploads/2020/06/prasadam.jpg" alt="Prasadam">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://iskconthane.com/wp-content/uploads/2020/06/festival.jpg" alt="Festival">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="view-all-gallery">
-                <a href="#full-gallery" class="btn-primary">View Full Gallery</a>
-            </div>
+
+<section id="gallery" class="gallery-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Temple Gallery</h2>
+            <p>Moments of devotion, organized in albums</p>
         </div>
-    </section>
+        <div class="gallery-grid">
+            {% for album in albums %}
+            <div class="gallery-item">
+                <a href="{% url 'album_detail' album.id %}">
+                    {% if album.cover_image %}
+                        <img src="{{ album.cover_image.url }}" alt="{{ album.title }}">
+                    {% else %}
+                        <img src="{% static 'images/default_album_cover.png' %}" alt="Default cover">
+                    {% endif %}
+                    <div class="gallery-overlay">
+                        <h4 style="color: white; text-align: center;">{{ album.title }}</h4>
+                    </div>
+                </a>
+            </div>
+            {% empty %}
+                <p>No photo albums have been created yet.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
 
     <!-- Donation Section -->
     <section id="donate" class="donation-section">
