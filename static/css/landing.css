@@ -213,7 +213,7 @@ a:hover {
 .hero-banner {
     height: 80vh;
     min-height: 600px;
-    background: url('https://iskconthane.com/wp-content/uploads/2020/06/temple-view.jpg') no-repeat center center/cover;
+    background: url('/static/images/madangopal.jpg') no-repeat center center / cover;
     position: relative;
     display: flex;
     align-items: center;
