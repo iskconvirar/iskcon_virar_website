@@ -13,7 +13,7 @@
     <!-- Top Announcement Bar -->
     <div class="announcement-bar">
         <marquee behavior="scroll" direction="left">
-            � Join us for daily Aarti at 7:00 AM and 7:00 PM | Sunday Feast every week at 12:00 PM | Upcoming Janmashtami Festival on August 16th
+            Hare Krishna Hare Krishna Krishna Krishna Hare Hare Hare Ram Hare Ram Ram Ram Hare Hare
         </marquee>
     </div>
 
@@ -85,17 +85,16 @@
     <section id="about" class="about-section">
         <div class="container">
             <div class="section-header">
-                <h2>About ISKCON Virar</h2>
-                <p>Spreading Lord Krishna's message since 2010</p>
+                <h2>About</h2>
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <p>ISKCON Virar is a branch of the International Society for Krishna Consciousness (ISKCON) founded by His Divine Grace A.C. Bhaktivedanta Swami Prabhupada in 1966. Our temple in Virar serves as a spiritual oasis for devotees and visitors seeking peace, wisdom, and divine connection.</p>
+                    <p>ISKCON Chowpatty (Virar Satsang Centre) is a branch of the International Society for Krishna Consciousness (ISKCON) founded by His Divine Grace A.C. Bhaktivedanta Swami Prabhupada in 1966. Our temple in Virar serves as a spiritual oasis for devotees and visitors seeking peace, wisdom, and divine connection.</p>
                     <p>We conduct regular devotional programs, distribute spiritual literature, and provide vegetarian prasadam to all visitors. Our mission is to propagate Krishna consciousness as explained in the Bhagavad-gita and Srimad Bhagavatam.</p>
                     <a href="#about-more" class="btn-primary">Learn More</a>
                 </div>
                 <div class="about-image">
-                    <img src="https://iskconthane.com/wp-content/uploads/2020/06/temple.jpg" alt="ISKCON Temple">
+                    <img src='/static/images/madangopal.jpg' alt="ISKCON Temple">
                 </div>
             </div>
         </div>
@@ -164,20 +163,25 @@
     <div class="container">
         <div class="section-header">
             <h2>Temple Gallery</h2>
-            <p>Moments of devotion</p>
+            <p>Moments of devotion, organized in albums</p>
         </div>
         <div class="gallery-grid">
-            {% for item in gallery %}
+            {% for album in albums %}
             <div class="gallery-item">
-                <img src="{{ item.image.url }}" alt="{{ item.alt_text }}">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search-plus"></i>
-                </div>
+                <a href="{% url 'album_detail' album.id %}">
+                    {% if album.cover_image %}
+                        <img src="{{ album.cover_image.url }}" alt="{{ album.title }}">
+                    {% else %}
+                        <img src="{% static 'images/default_album_cover.png' %}" alt="Default cover">
+                    {% endif %}
+                    <div class="gallery-overlay">
+                        <h4 style="color: white; text-align: center;">{{ album.title }}</h4>
+                    </div>
+                </a>
             </div>
+            {% empty %}
+                <p>No photo albums have been created yet.</p>
             {% endfor %}
-        </div>
-        <div class="view-all-gallery">
-            <a href="#full-gallery" class="btn-primary">View Full Gallery</a>
         </div>
     </div>
 </section>
