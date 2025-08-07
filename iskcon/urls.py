@@ -1,5 +1,5 @@
 """
-URL configuration for iskcon project.
+URL configuration for isckon project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.1/topics/http/urls/
@@ -22,9 +22,9 @@ from iskconapp.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', landing, name='landing'),
+    path('', landing, name='landing_page'),
     path('login/', admin_login, name='login'),
     path('logout/', logout_view, name='logout'),
+    path('gallery/album/<int:album_id>/', album_detail, name='album_detail'),
     path('dashboard/', admin_dashboard, name='admin_dashboard'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-

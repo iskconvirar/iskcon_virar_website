@@ -3,25 +3,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ISKCON Admin Dashboard</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
-            --primary-color: #FF8C00; /* Saffron */
-            --secondary-color: #8B4513; /* Sacred cow brown */
-            --accent-color: #006400; /* Sacred green */
-            --light-color: #FFF8DC; /* Light spiritual background */
-            --dark-color: #333;
+            --primary-color: #FF8C00;
+            --secondary-color: #8B4513;
+            --accent-color: #006400;
+            --light-color: #FFF8DC;
             --text-color: #333;
             --text-light: #fff;
+            --danger-color: #e74c3c;
+            --danger-hover: #c0392b;
+            --card-bg: #ffffff;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+            --border-radius: 12px;
         }
         
         body {
             font-family: 'Hind Siliguri', sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: var(--light-color);
+            background-color: #f4f7f6;
             color: var(--text-color);
             line-height: 1.6;
             overflow-x: hidden;
@@ -37,194 +41,42 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         
-        .logo-container {
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo {
-            height: 50px;
-            margin-right: 15px;
-        }
-        
-        .header h1 {
-            margin: 0;
-            font-size: 1.8rem;
-            display: flex;
-            align-items: center;
-        }
+        .logo-container { display: flex; align-items: center; }
+        .logo { height: 50px; margin-right: 15px; }
+        .header h1 { margin: 0; font-size: 1.8rem; }
         
         .logout-btn {
             background-color: var(--accent-color);
             color: white;
             border: none;
             padding: 8px 16px;
-            border-radius: 4px;
+            border-radius: 8px;
             cursor: pointer;
             font-weight: 600;
             transition: all 0.3s ease;
+            text-decoration: none;
             display: flex;
             align-items: center;
         }
-        
-        .logout-btn:hover {
-            background-color: #004d00;
-            transform: translateY(-2px);
-        }
-        
-        .logout-btn i {
-            margin-right: 8px;
-        }
+        .logout-btn:hover { background-color: #004d00; transform: translateY(-2px); }
+        .logout-btn i { margin-right: 8px; }
         
         .main-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: calc(100vh - 180px);
             padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        
-        .option-buttons {
-    display: flex;
-    gap: 30px;
-    margin-bottom: 40px;
-    perspective: 1000px;
-}
 
-.option-btn {
-    position: relative;
-    color: white;
-    border: none;
-    padding: 30px 40px;
-    border-radius: 12px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 20px;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 220px;
-    text-align: center;
-    overflow: hidden;
-    transform-style: preserve-3d;
-    z-index: 1;
-}
-
-.option-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%);
-    z-index: -1;
-    border-radius: 12px;
-}
-
-.option-btn i {
-    font-size: 42px;
-    margin-bottom: 15px;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
-
-.option-btn::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 70%);
-    transform: translate(0, -100%) rotate(0deg);
-    transition: all 0.6s ease;
-    z-index: -1;
-}
-
-.option-btn:hover {
-    transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-}
-
-.option-btn:hover::after {
-    transform: translate(30%, 30%) rotate(30deg);
-}
-
-.option-btn.events {
-    background: linear-gradient(145deg, #FF8C00, #FF6B00);
-    border: 2px solid rgba(255,255,255,0.2);
-}
-
-.option-btn.gallery {
-    background: linear-gradient(145deg, #006400, #004d00);
-    border: 2px solid rgba(255,255,255,0.2);
-}
-
-.option-btn span {
-    display: block;
-    margin-top: 8px;
-    font-size: 14px;
-    opacity: 0.9;
-    font-weight: 500;
-}
-
-/* Add these decorative elements */
-.option-btn .decorative {
-    position: absolute;
-    font-family: 'Times New Roman', serif;
-    color: rgba(255,255,255,0.1);
-    font-size: 24px;
-    z-index: -1;
-}
-
-.option-btn .decorative.top-left {
-    top: 10px;
-    left: 15px;
-}
-
-.option-btn .decorative.bottom-right {
-    bottom: 10px;
-    right: 15px;
-}
-
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-    .option-buttons {
-        flex-direction: column;
-        gap: 20px;
-    }
-    
-    .option-btn {
-        width: 100%;
-        max-width: 280px;
-    }
-}
-        
-        .content-section {
-            width: 100%;
-            max-width: 800px;
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .section {
-            background-color: white;
-            border-radius: 8px;
+        /* Card-based layout for sections */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
             padding: 25px;
             margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: var(--shadow);
             border-top: 4px solid var(--primary-color);
         }
-        
-        .section h2 {
+        .card h2, .card h3 {
             color: var(--secondary-color);
             margin-top: 0;
             padding-bottom: 10px;
@@ -232,342 +84,311 @@
             display: flex;
             align-items: center;
         }
-        
-        .section h2 i {
-            margin-right: 10px;
-            color: var(--primary-color);
-        }
-        
-        .section h3 {
-            color: var(--accent-color);
-            margin-top: 25px;
-        }
-        
+        .card h2 i, .card h3 i { margin-right: 12px; color: var(--primary-color); }
+
+        /* Form Styling */
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 500; }
         form input, form textarea, form select {
-            display: block;
-            width: 100%;
-            max-width: 500px;
-            padding: 12px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-family: inherit;
-            font-size: 16px;
-            transition: border 0.3s ease;
+            display: block; width: 100%;
+            padding: 12px; margin-bottom: 15px;
+            border: 1px solid #ddd; border-radius: 8px;
+            font-family: inherit; font-size: 16px;
+            transition: border 0.3s ease, box-shadow 0.3s ease;
         }
-        
         form input:focus, form textarea:focus, form select:focus {
             border-color: var(--primary-color);
             outline: none;
             box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.2);
         }
-        
-        textarea {
-            min-height: 120px;
-            resize: vertical;
+
+        /* Button Styles */
+        .btn {
+            border: none; padding: 12px 25px; border-radius: 8px;
+            cursor: pointer; font-weight: 600; font-size: 16px;
+            transition: all 0.3s ease; display: inline-flex;
+            align-items: center; text-decoration: none; color: white;
         }
-        
-        .submit-btn {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
+        .btn i { margin-right: 8px; }
+        .btn-primary { background-color: var(--primary-color); }
+        .btn-primary:hover { background-color: #e67e00; transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .btn-danger { background-color: var(--danger-color); padding: 5px 10px; font-size: 14px; }
+        .btn-danger:hover { background-color: var(--danger-hover); }
+
+        /* Album & Image Grid Styling */
+        .album-header { display: flex; justify-content: space-between; align-items: center; }
+        .image-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; }
+        .image-card { position: relative; border-radius: var(--border-radius); overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: all 0.3s ease; }
+        .image-card.deleting { transform: scale(0); opacity: 0; }
+        .image-card img { width: 100%; height: 120px; object-fit: cover; display: block; }
+        .image-card .actions {
+            position: absolute; top: 5px; right: 5px;
         }
-        
-        .submit-btn:hover {
-            background-color: #e67e00;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+
+        /* Main Option Buttons */
+        .option-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 40px; }
+        .option-btn {
+            background: var(--card-bg); color: var(--text-color);
+            padding: 30px; border-radius: var(--border-radius);
+            text-align: center; cursor: pointer; transition: all 0.3s ease;
+            box-shadow: var(--shadow); border: none;
         }
-        
-        .submit-btn i {
-            margin-right: 8px;
+        .option-btn:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .option-btn i { font-size: 42px; margin-bottom: 15px; color: var(--primary-color); }
+        .option-btn span { font-size: 1.2rem; font-weight: 600; }
+        .option-btn p { font-size: 0.9rem; color: #666; }
+
+        /* Hidden Sections */
+        .content-section { display: none; }
+        .back-btn { margin-bottom: 20px; }
+
+        /* Custom Confirmation Modal */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: none; justify-content: center; align-items: center; z-index: 1000;
         }
-        
-        .delete-btn {
-            background-color: #e74c3c;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s ease;
+        .modal-box {
+            background: white; padding: 30px; border-radius: var(--border-radius);
+            text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            width: 90%; max-width: 400px;
         }
-        
-        .delete-btn:hover {
-            background-color: #c0392b;
-            transform: translateY(-2px);
-        }
-        
-        .back-btn {
-            background-color: var(--secondary-color);
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            margin-bottom: 20px;
-            display: inline-flex;
-            align-items: center;
-        }
-        
-        .back-btn i {
-            margin-right: 8px;
-        }
-        
-        .back-btn:hover {
-            background-color: #6b3a0f;
-            transform: translateY(-2px);
-        }
-        
-        .event, .gallery {
-            background-color: #f9f9f9;
-            border-left: 4px solid var(--accent-color);
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 4px;
-            max-width: 700px;
-            transition: transform 0.3s ease;
-        }
-        
-        .event:hover, .gallery:hover {
-            transform: translateX(5px);
-        }
-        
-        .event strong, .gallery strong {
-            color: var(--secondary-color);
-            font-size: 18px;
-        }
-        
-        img.preview {
-            max-width: 100%;
-            height: auto;
-            border-radius: 4px;
-            margin-top: 10px;
-            border: 1px solid #ddd;
-        }
-        
-        .empty-message {
-            color: #666;
-            font-style: italic;
-            padding: 15px;
-            background-color: #f5f5f5;
-            border-radius: 4px;
-            text-align: center;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--dark-color);
-        }
-        
-        .actions {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-        }
-        
+        .modal-box h3 { margin-top: 0; }
+        .modal-actions { margin-top: 20px; display: flex; justify-content: center; gap: 15px; }
+        .btn-secondary { background-color: #ccc; }
+        .btn-secondary:hover { background-color: #bbb; }
+
         @media (max-width: 768px) {
-            .header {
-                flex-direction: column;
-                text-align: center;
-                padding: 1rem;
-            }
-            
-            .logo-container {
-                margin-bottom: 15px;
-            }
-            
-            .option-buttons {
-                flex-direction: column;
-                gap: 20px;
-            }
+            .option-buttons { grid-template-columns: 1fr; }
+            .header { flex-direction: column; text-align: center; }
+            .logo-container { margin-bottom: 1rem; }
         }
     </style>
 </head>
 <body>
     <div class="header">
         <div class="logo-container">
-            <img src="{% static 'images/logo2.png' %}" alt="ISKCON Logo" class="logo">
-            <h1>ISKCON Admin Dashboard</h1>
+            <img src="{% static 'images/logo2.png' %}" alt="ISKCON Logo" class="logo" onerror="this.style.display='none'">
+            <h1>Admin Dashboard</h1>
         </div>
-        <a href="{% url 'logout' %}" class="logout-btn">
-            <i class="fas fa-sign-out-alt"></i> Logout
-        </a>
+        <a href="{% url 'logout' %}" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
     </div>
 
     <div class="main-content">
-        <div class="option-buttons" id="optionButtons">
-            <button class="option-btn events" onclick="showSection('events')">
-                <i class="fas fa-calendar-alt"></i>
-                Events
-                <span>Manage temple events</span>
-                <div class="decorative top-left">ॐ</div>
-                <div class="decorative bottom-right">हरे कृष्ण</div>
-            </button>
-            <button class="option-btn gallery" onclick="showSection('gallery')">
-                <i class="fas fa-images"></i>
-                Gallery
-                <span>Manage temple images</span>
-                <div class="decorative top-left">ॐ</div>
-                <div class="decorative bottom-right">हरे राम</div>
-            </button>
-        </div>
-
-        <!-- Events Section (hidden initially) -->
-        <div class="content-section" id="eventsSection">
-            <button class="back-btn" onclick="hideSections()">
-                <i class="fas fa-arrow-left"></i> Back to Options
-            </button>
-            
-            <div class="section">
-                <h2><i class="fas fa-calendar-alt"></i> Manage Events</h2>
-                <form method="POST">
-                    {% csrf_token %}
-                    <div class="form-group">
-                        <label for="id_title">Event Title:</label>
-                        {{ event_form.title }}
-                    </div>
-                    <div class="form-group">
-                        <label for="id_date">Date:</label>
-                        {{ event_form.date }}
-                    </div>
-                    <div class="form-group">
-                        <label for="id_month">Month:</label>
-                        {{ event_form.month }}
-                    </div>
-                    <div class="form-group">
-                        <label for="id_description">Description:</label>
-                        {{ event_form.description }}
-                    </div>
-                    <button type="submit" name="add_event" class="submit-btn">
-                        <i class="fas fa-plus-circle"></i> Add Event
-                    </button>
-                </form>
-
-                <h3><i class="fas fa-list"></i> Existing Events</h3>
-                {% for event in events %}
-                    <div class="event">
-                        <strong>{{ event.title }}</strong> 
-                        <p><i class="fas fa-calendar-day"></i> {{ event.date }} {{ event.month }}</p>
-                        <p>{{ event.description }}</p>
-                        <div class="actions">
-                            <form method="POST" style="display:inline;">
-                                {% csrf_token %}
-                                <input type="hidden" name="delete_event" value="{{ event.id }}">
-                                <button type="submit" class="delete-btn">
-                                    <i class="fas fa-trash-alt"></i> Delete
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                {% empty %}
-                    <div class="empty-message">
-                        <i class="fas fa-calendar-times"></i> No events added yet.
-                    </div>
-                {% endfor %}
+        <!-- Main Menu -->
+        <div id="optionButtons">
+            <div class="option-buttons">
+                <button class="option-btn" onclick="showSection('eventsSection')">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Manage Events</span>
+                    <p>Add, edit, or remove temple events.</p>
+                </button>
+                <button class="option-btn" onclick="showSection('gallerySection')">
+                    <i class="fas fa-images"></i>
+                    <span>Manage Gallery</span>
+                    <p>Create albums and upload photos.</p>
+                </button>
             </div>
         </div>
 
-        <!-- Gallery Section (hidden initially) -->
+        <!-- Events Section -->
+        <div class="content-section" id="eventsSection">
+            <button class="btn btn-secondary back-btn" onclick="hideSections()"><i class="fas fa-arrow-left"></i> Back</button>
+            <!-- Event management content goes here -->
+             <div class="card">
+                <h2><i class="fas fa-calendar-plus"></i> Add New Event</h2>
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ event_form.as_p }}
+                    <button type="submit" name="add_event" class="btn btn-primary">Add Event</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Gallery Section -->
         <div class="content-section" id="gallerySection">
-            <button class="back-btn" onclick="hideSections()">
-                <i class="fas fa-arrow-left"></i> Back to Options
-            </button>
+            <button class="btn btn-secondary back-btn" onclick="hideSections()"><i class="fas fa-arrow-left"></i> Back</button>
             
-            <div class="section">
-                <h2><i class="fas fa-images"></i> Manage Gallery</h2>
+            <div class="card">
+                <h2><i class="fas fa-folder-plus"></i> Create a New Album</h2>
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ album_form.as_p }}
+                    <button type="submit" name="add_album" class="btn btn-primary">Create Album</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <h2><i class="fas fa-upload"></i> Upload Multiple Images</h2>
                 <form method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="form-group">
-                        <label for="id_title">Image Title:</label>
-                        {{ gallery_form.title }}
+                        <label for="{{ multiple_upload_form.album.id_for_label }}">Select Album:</label>
+                        {{ multiple_upload_form.album }}
                     </div>
                     <div class="form-group">
-                        <label for="id_image">Image:</label>
-                        {{ gallery_form.image }}
+                        <label for="{{ multiple_upload_form.images.id_for_label }}">Select Images:</label>
+                        <input type="file" name="images" required id="{{ multiple_upload_form.images.id_for_label }}" multiple>
                     </div>
-                    <div class="form-group">
-                        <label for="id_alt_text">Alt Text:</label>
-                        {{ gallery_form.alt_text }}
-                    </div>
-                    <div class="form-group">
-                        <label for="id_show_in_homepage">Show on Homepage:</label>
-                        {{ gallery_form.show_in_homepage }}
-                    </div>
-                    <button type="submit" name="add_gallery" class="submit-btn">
-                        <i class="fas fa-upload"></i> Upload Image
-                    </button>
+                    <button type="submit" name="add_multiple_images" class="btn btn-primary">Upload Images</button>
                 </form>
+            </div>
 
-                <h3><i class="fas fa-image"></i> Gallery Images</h3>
-                {% for image in gallery_images %}
-                    <div class="gallery">
-                        <strong>{{ image.title }}</strong>
-                        <p><i class="fas fa-eye"></i> Show on homepage: {% if image.show_in_homepage %}Yes{% else %}No{% endif %}</p>
-                        <img src="{{ image.image.url }}" class="preview" alt="{{ image.alt_text }}">
-                        <div class="actions">
-                            <form method="POST" style="display:inline;">
-                                {% csrf_token %}
-                                <input type="hidden" name="delete_gallery" value="{{ image.id }}">
-                                <button type="submit" class="delete-btn">
-                                    <i class="fas fa-trash-alt"></i> Delete
-                                </button>
-                            </form>
+            <div class="card">
+                <h3><i class="fas fa-folder-open"></i> Existing Albums</h3>
+                {% for album in albums %}
+                <div class="card" id="album-card-{{ album.id }}">
+                    <div class="album-header">
+                        <h4>{{ album.title }}</h4>
+                        <form method="POST" class="delete-form-ajax">
+                            {% csrf_token %}
+                            <input type="hidden" name="delete_album" value="{{ album.id }}">
+                            <button type="submit" class="btn btn-danger">
+                                <i class="fas fa-trash-alt"></i> Delete Album
+                            </button>
+                        </form>
+                    </div>
+                    <div class="image-grid">
+                        {% for image in album.images.all %}
+                        <div class="image-card" id="image-card-{{ image.id }}">
+                            <img src="{{ image.image.url }}" alt="{{ image.alt_text }}">
+                            <div class="actions">
+                                <form method="POST" class="delete-form-ajax">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="delete_gallery" value="{{ image.id }}">
+                                    <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                                </form>
+                            </div>
                         </div>
+                        {% empty %}
+                        <p>This album is empty.</p>
+                        {% endfor %}
                     </div>
+                </div>
                 {% empty %}
-                    <div class="empty-message">
-                        <i class="fas fa-image"></i> No gallery images yet.
-                    </div>
+                <p>No albums created yet.</p>
                 {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Confirmation Modal -->
+    <div class="modal-overlay" id="confirmationModal">
+        <div class="modal-box">
+            <h3>Are you sure?</h3>
+            <p id="modalText">This action cannot be undone.</p>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" id="cancelDelete">Cancel</button>
+                <button class="btn btn-danger" id="confirmDelete">Delete</button>
             </div>
         </div>
     </div>
 
     <script>
         function showSection(sectionId) {
-            // Hide option buttons
             document.getElementById('optionButtons').style.display = 'none';
-            
-            // Hide all sections first
-            document.querySelectorAll('.content-section').forEach(section => {
-                section.style.display = 'none';
-            });
-            
-            // Show the selected section
-            document.getElementById(sectionId + 'Section').style.display = 'block';
+            document.querySelectorAll('.content-section').forEach(s => s.style.display = 'none');
+            document.getElementById(sectionId).style.display = 'block';
         }
-        
+
         function hideSections() {
-            // Show option buttons
-            document.getElementById('optionButtons').style.display = 'flex';
-            
-            // Hide all sections
-            document.querySelectorAll('.content-section').forEach(section => {
-                section.style.display = 'none';
-            });
+            document.getElementById('optionButtons').style.display = 'block';
+            document.querySelectorAll('.content-section').forEach(s => s.style.display = 'none');
         }
-        
-        // Initialize with buttons visible
+
         document.addEventListener('DOMContentLoaded', function() {
             hideSections();
+
+            const modal = document.getElementById('confirmationModal');
+            const confirmBtn = document.getElementById('confirmDelete');
+            const cancelBtn = document.getElementById('cancelDelete');
+            let formToSubmit = null;
+
+            // Use event delegation for all delete forms
+            document.querySelector('.main-content').addEventListener('submit', function(e) {
+                // Only act on forms with the 'delete-form-ajax' class
+                if (e.target.classList.contains('delete-form-ajax')) {
+                    e.preventDefault(); // Stop the form from submitting normally
+                    formToSubmit = e.target; // Store the form that was submitted
+                    
+                    // Customize modal text
+                    const modalText = document.getElementById('modalText');
+                    if(formToSubmit.querySelector('[name=delete_album]')) {
+                        modalText.textContent = "This will delete the entire album and all its photos. This action cannot be undone.";
+                    } else {
+                        modalText.textContent = "This will permanently delete the image.";
+                    }
+
+                    modal.style.display = 'flex'; // Show the modal
+                }
+            });
+
+            // Handle the final "Delete" click inside the modal
+            confirmBtn.addEventListener('click', function() {
+                if (formToSubmit) {
+                    const formData = new FormData(formToSubmit);
+                    const url = formToSubmit.action; // The form's action URL
+                    const csrfToken = formData.get('csrfmiddlewaretoken');
+                    
+                    fetch(url, {
+                        method: 'POST',
+                        headers: {
+                            'X-CSRFToken': csrfToken,
+                            'X-Requested-With': 'XMLHttpRequest', // Important for the view to detect AJAX
+                        },
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.status === 'success') {
+                            // Find which element to remove
+                            let elementToRemove = null;
+                            const albumId = formData.get('delete_album');
+                            const imageId = formData.get('delete_gallery');
+                            
+                            if (albumId) {
+                                elementToRemove = document.getElementById(`album-card-${albumId}`);
+                            } else if (imageId) {
+                                elementToRemove = document.getElementById(`image-card-${imageId}`);
+                            }
+                            
+                            if (elementToRemove) {
+                                // Add a class for a smooth fade-out animation
+                                elementToRemove.classList.add('deleting');
+                                // Remove the element from the page after the animation
+                                elementToRemove.addEventListener('transitionend', () => {
+                                    elementToRemove.remove();
+                                });
+                            }
+                        } else {
+                            console.error('Deletion failed:', data.message);
+                            alert('An error occurred. Please try again.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('A network error occurred. Please try again.');
+                    })
+                    .finally(() => {
+                        modal.style.display = 'none'; // Hide the modal
+                        formToSubmit = null;
+                    });
+                }
+            });
+
+            // Handle the "Cancel" click
+            cancelBtn.addEventListener('click', function() {
+                modal.style.display = 'none';
+                formToSubmit = null;
+            });
+
+            // Close modal if clicking on the overlay
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                    formToSubmit = null;
+                }
+            });
         });
     </script>
 </body>

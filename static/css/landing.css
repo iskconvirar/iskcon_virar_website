@@ -183,6 +183,11 @@ a:hover {
 .nav-menu ul li a:hover::after {
     width: 100%;
 }
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
 
 .donate-btn {
     background-color: var(--primary-color);
