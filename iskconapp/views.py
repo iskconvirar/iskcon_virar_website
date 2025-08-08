@@ -8,6 +8,7 @@ from .decorators import role_required
 from .models import Event, GalleryImage, Album
 from .forms import EventForm, GalleryImageForm, AlbumForm, MultipleImageUploadForm
 from django.http import JsonResponse
+import os
 
 
 def landing(request):
@@ -32,8 +33,8 @@ def admin_login(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
         
-        DEMO_ADMIN_USERNAME = "admin"
-        DEMO_ADMIN_PASSWORD = "admin123"
+        DEMO_ADMIN_USERNAME = os.getenv("ADMIN")
+        DEMO_ADMIN_PASSWORD = os.getenv("PASS")
         
         user = authenticate(request, username=username, password=password)
         
