@@ -28,6 +28,7 @@ DEBUG = os.environ.get('DEBUG', 'True').lower() == 'true'
 
 ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', 'localhost']
 
+USE_SUPABASE_STORAGE = os.getenv('USE_SUPABASE_STORAGE', 'False').lower() == 'true'
 
 # Application definition
 
@@ -125,8 +126,14 @@ STATICFILES_DIRS = [
 STATIC_ROOT = BASE_DIR / 'staticfiles_build' / 'static'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Media files
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+if USE_SUPABASE_STORAGE:
+    DEFAULT_FILE_STORAGE = 'iskconapp.storage_backends.SupabaseStorage'
+    # Keep MEDIA_URL for backward compatibility, but it won't be used
+    MEDIA_URL = '/media/'
+else:
+    # Fallback to local storage for development
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
