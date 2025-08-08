@@ -5,15 +5,15 @@
       "src": "api/wsgi.py",
       "use": "@vercel/python",
       "config": { 
-        "maxLambdaSize": "15mb", 
-        "runtime": "python3.9" 
+        "maxLambdaSize": "15mb",
+        "runtime": "python3.9"
       }
     }
   ],
   "routes": [
     {
       "src": "/static/(.*)",
-      "dest": "/static/$1"
+      "dest": "/staticfiles/$1"
     },
     {
       "src": "/media/(.*)",
@@ -23,5 +23,6 @@
       "src": "/(.*)",
       "dest": "api/wsgi.py"
     }
-  ]
+  ],
+  "buildCommand": "pip install -r requirements.txt && python manage.py collectstatic --noinput"
 }
