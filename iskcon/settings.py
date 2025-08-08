@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-_^xc4pa8(lb=cx(pk3w*2cuf(w0r-mge)b9)0=j+ars7__53v_'
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'True').lower() == 'true'
@@ -78,8 +78,8 @@ WSGI_APPLICATION = 'iskcon.wsgi.application'
 
 
 DATABASES = {
-        'default': dj_database_url.config(
-            default=os.environ['DATABASE_URL'],
+    'default': dj_database_url.config(
+        default=os.getenv('DATABASE_URL'),
         conn_max_age=600,
         ssl_require=True
     )
